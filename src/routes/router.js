@@ -1,7 +1,10 @@
 const express = require("express");
 const router = express.Router();
 const passport = require("passport");
-require("../controller/googleAuth").googleAuth;
+const jwt = require("jsonwebtoken");
+require("../controller/passportAuth");
+const auth = require("../middleware/auth");
+const expireTime = 1000 * 60 * 2;
 
 //home route
 router.get("/", function (req, res) {
@@ -22,17 +25,49 @@ router.get(
 router.get(
   "/google/callback",
   passport.authenticate("google", {
+    session: false,
     failureRedirect: "/login",
-    failureMessage: true,
   }),
   (req, res) => {
-    res.redirect("/profile");
+    jwt.sign(
+      { user: req.user },
+      "secretKey",
+      { expiresIn: "1h" },
+      (err, token) => {
+        if (err) {
+          return res.json({
+            token: null,
+          });
+        }
+        res.redirect(`/details/${token}`);
+        // res.json({
+        //   token: token,
+        // });
+      }
+    );
   }
 );
-// profile route after successful sign in
-router.get("/profile", (req, res) => {
-  console.log(req);
-  res.send("Welcome");
+// details route after successful sign in
+router.get(
+  "/details/:token",
+  auth,
+  // passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    res.render("fill_details", { token: req.params.token });
+  }
+);
+
+router.post("/details/:token", auth, (req, res) => {
+  console.log(req.body);
+  res.json({
+    message: "Successfully posted",
+  });
+});
+
+router.get("/make_payment/:token", auth, (req, res) => {
+  res.json({
+    message: "Now make payment",
+  });
 });
 
 module.exports = router;

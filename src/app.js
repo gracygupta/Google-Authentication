@@ -2,7 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const passport = require("passport");
-require("./controller/googleAuth");
+require("./controller/passportAuth")(passport);
 require("dotenv").config();
 require("./db/conn");
 const port = process.env.PORT;

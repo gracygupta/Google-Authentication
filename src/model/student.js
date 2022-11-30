@@ -12,6 +12,29 @@ const studentSchema = new mongoose.Schema({
     email: {
       type: String,
     },
+    image: {
+      type: String,
+    },
+  },
+  details: {
+    leader: {
+      name: {
+        type: String,
+      },
+      email: {
+        type: String,
+      },
+    },
+    teammate: {
+      name: {
+        type: String,
+        default: null,
+      },
+      email: {
+        type: String,
+        default: null,
+      },
+    },
   },
 });
 const Student = mongoose.model("Student", studentSchema);
