@@ -4,7 +4,7 @@ const passport = require("passport");
 const jwt = require("jsonwebtoken");
 require("../controller/passportAuth");
 const auth = require("../middleware/auth");
-const expireTime = 1000 * 60 * 2;
+const razorpay = require("../controller/razorpay");
 
 //home route
 router.get("/", function (req, res) {
@@ -59,15 +59,9 @@ router.get(
 
 router.post("/details/:token", auth, (req, res) => {
   console.log(req.body);
-  res.json({
-    message: "Successfully posted",
-  });
+  res.redirect(`/payment/${req.params.token}`);
 });
 
-router.get("/make_payment/:token", auth, (req, res) => {
-  res.json({
-    message: "Now make payment",
-  });
-});
+router.get("/payment/:token", auth, razorpay);
 
 module.exports = router;
