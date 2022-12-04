@@ -15,10 +15,16 @@ const payment = async (req, res) => {
     if (err) {
       console.log(err);
     } else {
-      console.log(order);
-      res.send(order.id);
+      console.log(instance.orders.all());
+      res.render("checkout", { amount: order.amount, order_id: order.id });
     }
   });
 };
+
+// const payment_verify = async (req, res) => {
+//   body = req.body.razorpay_order_id + "|" + req.body.razorpay_payment_id;
+//   var crypto = require("crypto");
+//   var expectedSignature = crypto.createHmac();
+// };
 
 module.exports = payment;

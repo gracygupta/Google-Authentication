@@ -21,29 +21,34 @@ module.exports = (passport) => {
       async (request, accessToken, refreshToken, profile, done) => {
         try {
           let existingUser = await Student.findOne({ "google.id": profile.id });
+          const student_email = profile.emails[0].value.split("@");
           // if user exists return the user
           if (existingUser) {
             return done(null, existingUser);
           }
           // if user does not exist create a new user
-          console.log("Creating new user...");
-          const newUser = new Student({
-            method: "google",
-            google: {
-              id: profile.id,
-              name: profile.displayName,
-              email: profile.emails[0].value,
-              image: profile._json.picture,
-            },
-            details: {
-              leader: {
+          if (student_email[1] === "akgec.ac.in") {
+            const newUser = new Student({
+              method: "google",
+              google: {
+                id: profile.id,
                 name: profile.displayName,
                 email: profile.emails[0].value,
+                image: profile._json.picture,
               },
-            },
-          });
-          await newUser.save();
-          return done(null, newUser);
+              details: {
+                leader: {
+                  name: profile.displayName,
+                  email: profile.emails[0].value,
+                },
+              },
+            });
+            console.log("Creating new user...");
+            await newUser.save();
+            return done(null, newUser);
+          } else {
+            console.log("Wrong Email");
+          }
         } catch (error) {
           return done(error, false);
         }

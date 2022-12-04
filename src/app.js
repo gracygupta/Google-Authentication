@@ -2,6 +2,8 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const passport = require("passport");
+const expressLayouts = require("express-ejs-layouts");
+
 require("./controller/passportAuth")(passport);
 require("dotenv").config();
 require("./db/conn");
@@ -9,6 +11,7 @@ const port = process.env.PORT;
 const app = express();
 
 //middlewares
+app.use(expressLayouts);
 app.use(passport.initialize());
 app.use(cookieParser());
 app.use(express.json());

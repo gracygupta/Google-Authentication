@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      body {
+        background-color: whitesmoke;
+        width: 100vw;
+        height: 100vh;
+      }
+      #con {
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+      }
+      .logo {
+        height: 100%;
+        width: 20vw;
+        overflow: hidden;
+      }
+      .logo img {
+        padding: 15% 10%;
+        height: auto;
+        width: 13vw;
+      }
+      .containerx {
+        background-color: white;
+        height: 100%;
+        width: 65vw;
+        background-color: whitesmoke;
+      }
+      .box1 {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .box2 {
+        height: 95%;
+        width: 100%;
+        background-color: white;
+        border: solid rgb(218, 210, 210) 1px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+          0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+      }
+      .button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100%;
+        width: 35%;
+        border-radius: 10px;
+        background-color: #0492c2;
+      }
+      .btnx {
+        margin-top: 10px;
+        width: 80%;
+        height: 6%;
+        border: solid rgb(218, 210, 210) 1px;
+        background-color: white;
+        border-radius: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .btnx a {
+        text-decoration: none;
+        color: black;
+      }
+      .btn1 {
+        background-color: black;
+        border: solid black;
+      }
+      .btn1 a {
+        color: white;
+      }
+      .btnx img {
+        height: auto;
+        width: 20px;
+      }
+      .form {
+        width: 65%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+      }
+      /* .container {
+        /* display: flex; */
+        /* flex-direction: column; */
+      } */
+      .submit_btn {
+        background-color: #0492c2;
+        border: none;
+        border-radius: 10px;
+        color: white;
+        padding: 10px 30px;
+      }
+      .right {
+        height: 100vh;
+        width: 15vw;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="con">
+      <div class="logo"><img src="./img/brl_logo.jpg" alt="" /></div>
+      <div class="containerx">
+        <div class="box1">
+          <div class="box2">
+            <div class="button">
+              <button class="btnx btn1">
+                <a href="/google"
+                  ><img src="./img/google_logo.png" alt="" /> SignUp</a
+                >
+              </button>
+              <button class="btnx" id="details" onclick="details()">
+                <a href="/google">Fill Details</a>
+              </button>
+              <button class="btnx" id="payment" onclick="pay()">
+                <a href="/google">Make Payment</a>
+              </button>
+              <button class="btnx" id="review" onclick="review()">
+                <a href="/google">Review and Submit</a>
+              </button>
+            </div>
+            <div class="form">
+              <form action="" method="" class="mx-1 mx-md-4">
+                <label for="form3Example1c" class="form-label"
+                  >Team Name :</label
+                >
+                <input
+                  type="text"
+                  name="team_name"
+                  placeholder="Team Name"
+                  id="form3Example1c"
+                  class="form-control"
+                />
+                <br />
+                <label for="form3Example1c" class="form-label">Leader :</label>
+                <input
+                  type="text"
+                  name="lname"
+                  placeholder="Leader Name"
+                  id="form3Example1c"
+                  class="form-control"
+                />
+                <label for="form3Example1c" class="form-label"></label>
+                <input
+                  type="email"
+                  name="lemail"
+                  placeholder="Leader Email"
+                  id="form3Example1c"
+                  class="form-control"
+                />
+                <br />
+                <label for="form3Example1c" class="form-label"
+                  >Teammate :</label
+                >
+                <input
+                  type="text"
+                  name="tname"
+                  placeholder="Teammate Name"
+                  id="form3Example1c"
+                  class="form-control"
+                />
+                <label for="form3Example1c" class="form-label"></label>
+                <input
+                  type="email"
+                  name="temail"
+                  placeholder="Teammate Email"
+                  id="form3Example1c"
+                  class="form-control"
+                />
+                <br />
+                <button type="submit" class="submit_btn" onclick="details()">
+                  Next
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="right"></div>
+    </div>
+    <script>
+      function details() {
+        var element = document.getElementById("details");
+        element.classList.add("btn1");
+      }
+    </script>
+  </body>
+</html>
