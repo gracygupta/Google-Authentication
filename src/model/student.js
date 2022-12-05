@@ -17,6 +17,7 @@ const studentSchema = new mongoose.Schema({
     },
   },
   details: {
+    team_name: { type: String, default: null },
     leader: {
       name: {
         type: String,
@@ -34,6 +35,20 @@ const studentSchema = new mongoose.Schema({
         type: String,
         default: null,
       },
+    },
+  },
+  payment: {
+    payment_id: {
+      type: String,
+      default: null,
+    },
+    order_id: {
+      type: String,
+      default: null,
+    },
+    signature: {
+      type: String,
+      default: null,
     },
   },
 });

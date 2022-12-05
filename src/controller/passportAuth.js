@@ -21,6 +21,7 @@ module.exports = (passport) => {
       async (request, accessToken, refreshToken, profile, done) => {
         try {
           let existingUser = await Student.findOne({ "google.id": profile.id });
+          console.log("exist", existingUser);
           const student_email = profile.emails[0].value.split("@");
           // if user exists return the user
           if (existingUser) {

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      body {
+        background-color: whitesmoke;
+        width: 100vw;
+        height: 100vh;
+      }
+      #con {
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+      }
+      .logo {
+        height: 100%;
+        width: 20vw;
+        overflow: hidden;
+      }
+      .logo img {
+        padding: 15% 10%;
+        height: auto;
+        width: 13vw;
+      }
+      .containerx {
+        background-color: white;
+        height: 100%;
+        width: 65vw;
+        background-color: whitesmoke;
+      }
+      .box1 {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .box2 {
+        height: 95%;
+        width: 100%;
+        background-color: white;
+        border: solid rgb(218, 210, 210) 1px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+          0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+      }
+      .button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100%;
+        width: 35%;
+        border-radius: 10px;
+        background-color: #0492c2;
+      }
+      .btnx {
+        margin-top: 10px;
+        width: 80%;
+        height: 6%;
+        border: solid rgb(218, 210, 210) 1px;
+        background-color: white;
+        border-radius: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .btnx a {
+        text-decoration: none;
+        color: black;
+      }
+      .btn1 {
+        background-color: black;
+        border: solid black;
+      }
+      .btn1 a {
+        color: white;
+      }
+      .btnx img {
+        height: auto;
+        width: 20px;
+      }
+      .form {
+        width: 65%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      .form h2 {
+        padding: 50px;
+      }
+      #form_in {
+        display: flex;
+        flex-direction: column;
+      }
+      .container {
+        height: 100%;
+        width: 100%;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+      .active {
+        background-color: grey;
+      }
+      .card {
+        width: 100%;
+        height: 100%;
+      }
+      .submit_btn {
+        background-color: #0492c2;
+        border: none;
+        border-radius: 10px;
+        color: white;
+        padding: 10px 30px;
+      }
+      .review {
+        display: none;
+      }
+      .right {
+        height: 100vh;
+        width: 15vw;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="con">
+      <div class="logo"><img src="./img/brl_cropped_logo.jpg" alt="" /></div>
+      <div class="containerx">
+        <div class="box1">
+          <div class="box2">
+            <div class="button">
+              <button class="btnx btn1">
+                <a href="/google"
+                  ><img src="./img/google_logo.png" alt="" /> SignUp</a
+                >
+              </button>
+              <button class="btnx btn1" id="details" onclick="details()">
+                <a href="form_in">Fill Details</a>
+              </button>
+              <button class="btnx btn1" id="payment" onclick="pay()">
+                <a href="/google">Make Payment</a>
+              </button>
+              <button class="btnx btn1" id="review" onclick="review()">
+                <a href="/google">Review and Submit</a>
+              </button>
+            </div>
+            <div class="form">
+              <h2>
+                Thankyou! You have been successfully registered for Blockverse.
+              </h2>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="right"></div>
+    </div>
+  </body>
+</html>

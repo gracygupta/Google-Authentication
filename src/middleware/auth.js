@@ -7,13 +7,13 @@ const auth = (req, res, next) => {
     if (token) {
       let user = jwt.verify(token, SECRET_KEY);
       if (user) {
-        req.userId = user.id;
-        req.userEmail = user.email;
+        req.body.userId = user.id;
+
         console.log("User Authorized");
         next();
       }
     } else {
-      console.log("Unauthorized User");
+      console.log("Token expire or Unauthorized User");
       res.redirect("/");
     }
   } catch (err) {
