@@ -1,4 +1,4 @@
-var GoogleStrategy = require("passport-google-oauth20").Strategy;
+var GoogleStrategy = require("passport-google-oauth2").Strategy;
 const Student = require("../model/student");
 require("dotenv").config();
 
